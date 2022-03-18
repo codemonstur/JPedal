@@ -5,15 +5,86 @@
 	<artifactId>jpedal</artifactId>
 	<version>4.92-p13</version>
 
-	<description>Patched jPedal based on the last official jpedal version 4.92</description>
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>Patched jPedal based on the last official jpedal version 4.92</description>
+    <url>https://github.com/codemonstur/jpedal</url>
 
-	<properties>
+    <licenses>
+        <license>
+            <name>LGPL 2.1 License</name>
+            <url>https://opensource.org/licenses/LGPL-2.1</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:https://github.com/codemonstur/jpedal.git</connection>
+        <developerConnection>scm:git:https://github.com/codemonstur/jpedal.git</developerConnection>
+        <url>https://github.com/codemonstur/jpedal</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>codemonstur</id>
+            <name>Jurgen Voorneveld</name>
+            <email>jegvoorneveld@gmail.com</email>
+        </developer>
+    </developers>
+
+    <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
-	<build>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>sonatype-nexus-snapshots</id>
+            <name>Sonatype Nexus snapshot repository</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>sonatype-nexus-staging</id>
+            <name>Sonatype Nexus release repository</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <activation>
+                <property>
+                    <name>release</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.5</version>
+                        <configuration>
+                            <passphrase>${gpg.passphrase}</passphrase>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <build>
         <plugins>
 
             <plugin>
