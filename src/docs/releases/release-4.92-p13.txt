@@ -1,0 +1,19 @@
+4.92-p13
+
+Disabled classpath in metainf (causes problems in AppServer)
+Added latest release to dist
+Use security improved bouncyCastle
+Merge branch 'master' of https://github.com/Lonzak/JPedal
+Added repositories
+Create a yaml file
+Updated dist
+Due to the update of image io the support for jpg2K was removed. Fixed that.
+Some more jdoc improvements
+Fixed some javadoc errors
+Updated dist folder
+Merge Request from jwenting (Fix objectstore no extension)
+Small adjustments in the readme
+Fixed a bug when retrieving text for PDFs with bullet points
+Font bugfix
+Update README.md
+Rearranged code to match maven structure
