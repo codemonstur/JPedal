@@ -190,6 +190,16 @@
 	</dependencies>
 	
 	<repositories>
+
+        <repository>
+            <name>geotoolkit</name>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <url>http://maven.geotoolkit.org/</url>
+        </repository>
+
 		<repository>
             <id>central</id>
             <name>Central Repository</name>
@@ -198,16 +208,6 @@
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
-		</repository>
-
-		<repository>
-			<id>Geotoolkit</id>
-			<layout>default</layout>
-			<name>geotoolkit-repo-3rd-party</name>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-			<url>https://nexus.geomatys.com/repository/geotoolkit</url>
 		</repository>
     </repositories>
 
